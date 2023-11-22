@@ -1,5 +1,4 @@
 from pwn import *
-import re
 
 SERVER = "mustard.stt.rnl.tecnico.ulisboa.pt"
 PORT = 23055

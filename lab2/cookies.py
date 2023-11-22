@@ -6,10 +6,7 @@ link = "http://mustard.stt.rnl.tecnico.ulisboa.pt:23054"
 # Create a session to persist the cookies between requests
 s = requests.Session()
 
-# Access the first link to set the user cookie
-s.get(link)
-
-# get target value from link + /hello
+# get cookie, target value, and current value from link + /hello
 r = s.get(link + "/hello")
 cookies = r.cookies.get_dict()
 

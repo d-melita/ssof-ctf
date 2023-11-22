@@ -15,14 +15,12 @@ high = 1000000
 
 while True:
     mid = (low + high) // 2
-    print(mid)
     r = s.get(link + "/number/" + str(mid))
-    if "Higher" in r.text:
+    if "Higher!" in r.text:
         low = mid + 1
-    elif "Lower" in r.text:
+    elif "Lower!" in r.text:
         high = mid - 1
-
-    if "SSof" in r.text:
+    elif "SSof" in r.text:
         print(r.text)
         break
     
