@@ -10,7 +10,6 @@ r = s.get(link)
 success = False
 
 def login_as_admin():
-    # login as admin
     s.post(link + "/login", data={"username": "admin", "password": "passwordNotEmpty"})
 
 def login():
