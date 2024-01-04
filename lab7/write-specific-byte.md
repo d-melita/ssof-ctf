@@ -17,7 +17,7 @@ we can verify that the 7th register is filled with `41414141` (the value of `AAA
 
 To get the address of the `target` variable we use:
 ```py
-elf = ELF("04_match_value")
+elf = ELF("05_write_specific_byte")
 target_address = elf.symbols['target']
 ```
 
